@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed = 200f;
+    public float speed = 300f;
 
     private Rigidbody2D _rigidbody;
 
@@ -13,16 +13,10 @@ public class Ball : MonoBehaviour
     }
     private void Start()
     {
+        ResetPosition();
         AddStartingForce();
     }
-
-
-    private void Update()
-    {
-
-    }
-
-    private void AddStartingForce()
+    public void AddStartingForce()
     {
 
         float x = Random.value < 0.5f ? -1.0f : 1.0f;
@@ -30,5 +24,16 @@ public class Ball : MonoBehaviour
 
         Vector2 direction = new Vector2(x, y);  
         _rigidbody.AddForce(direction * speed);
+    }
+
+    public void AddForce(Vector2 force)
+    {
+        _rigidbody.AddForce(force);
+    }
+
+    public void ResetPosition()
+    {
+        _rigidbody.position = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 }

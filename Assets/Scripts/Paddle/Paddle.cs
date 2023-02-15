@@ -10,17 +10,12 @@ public class Paddle : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody= GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    public void ResetPosition()
     {
-        
-    }
-
-
-    private void Update()
-    {
-        
+        _rigidbody.position = new Vector2(_rigidbody.position.x, 0.0f);
+        _rigidbody.velocity = Vector2.zero; 
     }
 }
